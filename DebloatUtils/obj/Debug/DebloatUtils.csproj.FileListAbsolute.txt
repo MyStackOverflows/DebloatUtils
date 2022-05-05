@@ -23,3 +23,16 @@ D:\Code\C#\DebloatUtils\DebloatUtils\obj\Debug\DebloatUtils.pdb
 D:\Code\C#\DebloatUtils\DebloatUtils\bin\Debug\Resources\OOSU10Config.cfg
 D:\Code\C#\DebloatUtils\DebloatUtils\obj\Debug\DebloatUtils.csproj.AssemblyReference.cache
 D:\Code\C#\DebloatUtils\DebloatUtils\obj\Debug\DebloatUtils.csproj.SuggestedBindingRedirects.cache
+D:\Code\DebloatUtils\DebloatUtils\bin\Debug\Resources\OOSU10Config.cfg
+D:\Code\DebloatUtils\DebloatUtils\bin\Debug\DebloatUtils.exe.config
+D:\Code\DebloatUtils\DebloatUtils\bin\Debug\DebloatUtils.exe
+D:\Code\DebloatUtils\DebloatUtils\bin\Debug\DebloatUtils.pdb
+D:\Code\DebloatUtils\DebloatUtils\obj\Debug\DebloatUtils.csproj.AssemblyReference.cache
+D:\Code\DebloatUtils\DebloatUtils\obj\Debug\DebloatUtils.csproj.SuggestedBindingRedirects.cache
+D:\Code\DebloatUtils\DebloatUtils\obj\Debug\DebloatUtils.BugReportForm.resources
+D:\Code\DebloatUtils\DebloatUtils\obj\Debug\DebloatUtils.ControlCenterForm.resources
+D:\Code\DebloatUtils\DebloatUtils\obj\Debug\DebloatUtils.Properties.Resources.resources
+D:\Code\DebloatUtils\DebloatUtils\obj\Debug\DebloatUtils.csproj.GenerateResource.cache
+D:\Code\DebloatUtils\DebloatUtils\obj\Debug\DebloatUtils.csproj.CoreCompileInputs.cache
+D:\Code\DebloatUtils\DebloatUtils\obj\Debug\DebloatUtils.exe
+D:\Code\DebloatUtils\DebloatUtils\obj\Debug\DebloatUtils.pdb

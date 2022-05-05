@@ -39,13 +39,13 @@ namespace DebloatUtils
             new ApplicationObject("Edge", "https://go.microsoft.com/fwlink/?linkid=2108834&Channel=Stable&language=en", "MSEdgeSetup.exe", true, "/S", @"", "", ""),
             new ApplicationObject("VLC Media Player", "https://www.videolan.org/vlc", "VLCSetup.exe", true, "/S", @"C:\Program Files\VideoLAN\VLC\vlc.exe", @"C:\Program Files\VideoLAN\VLC\uninstall.exe", "/S"),
             new ApplicationObject("7-Zip", "https://www.7-zip.org", "7-ZipSetup.exe", true, "/S", @"C:\Program Files\7-Zip\7zFM.exe", @"C:\Program Files\7-Zip\Uninstall.exe", "/S"),
-            new ApplicationObject("Rufus", "https://rufus.ie/en_US", "Rufus.exe", false, "", "", "", ""),
+            new ApplicationObject("Rufus", "https://rufus.ie/en", "Rufus.exe", false, "", "", "", ""),
             new ApplicationObject("BCUninstaller", "https://osdn.net/projects/bulk-crap-uninstaller/releases", "BCUninstaller.exe", true, "/verysilent", @"C:\Program Files\BCUninstaller\BCUninstaller.exe", @"C:\Program Files\BCUninstaller\unins000.exe", "/verysilent"),
-            new ApplicationObject("Advanced IP Scanner", "https://www.advanced-ip-scanner.com", "AdvancedIPScanner.exe", false, "", "", "", ""),
-            new ApplicationObject("Hardware Info", "https://www.hwinfo.com/download", "HWInfoSetup.exe", true, "/verysilent", @"C:\Program Files\HWiNFO64\HWiNFO64.EXE", @"C:\Program Files\HWiNFO64\unins000.exe", "/verysilent"),
+            new ApplicationObject("Advanced IP Scanner", "https://www.advanced-ip-scanner.com/download", "AdvancedIPScanner.exe", false, "", "", "", ""),
+            //new ApplicationObject("Hardware Info", "https://www.hwinfo.com/version-history", "HWInfoSetup.exe", true, "/verysilent", @"C:\Program Files\HWiNFO64\HWiNFO64.EXE", @"C:\Program Files\HWiNFO64\unins000.exe", "/verysilent"),
+            // ^ CRASHES BECAUSE WE GET ERROR 403 (FORBIDDEN) IE WEBSITE DOESN'T LIKE US DOWNLOADING THE HTML
             new ApplicationObject("qBittorrent", "https://www.qbittorrent.org/download.php", "qBittorrentSetup.exe", true, "/S", @"C:\Program Files\qBittorrent\qbittorrent.exe", @"C:\Program Files\qBittorrent\uninst.exe", "/S"),
             new ApplicationObject("Tor Browser", "https://www.torproject.org/download", "TorBrowser.exe", false, "", "", "", ""),
-            new ApplicationObject("Freezer", "https://freezer.life/api/versions", "Freezer.exe", false, "", "", "", ""),
             new ApplicationObject("Norton Uninstaller", "https://norton.com/nrnr", "NortonUninstaller.exe", false, "", "", "", ""),
             new ApplicationObject("McAfee Uninstaller", "https://download.mcafee.com/molbin/iss-loc/SupportTools/MCPR/MCPR.exe", "McAfeeUninstaller.exe", false, "", "", "", ""),
             new ApplicationObject("AVG Uninstaller", "https://install.avcdn.net/avg/iavs9x/avgclear.exe", "AVGUninstaller.exe", false, "", "", "", ""),
@@ -266,12 +266,6 @@ namespace DebloatUtils
                 string version = GetVal(client.DownloadString(URLToParse), new string[] { "<a class=\"downloadLink\" href=\"/dist/torbrowser/" }, "/");
                 return $"https://www.torproject.org/dist/torbrowser/{version}/torbrowser-install-win64-{version}_en-US.exe";
             }
-            // Freezer
-            else if (URLToParse.Equals("https://freezer.life/api/versions"))
-            {
-                string version = GetVal(client.DownloadString(URLToParse), new string[] { "pc", "latest\": \"" }, "\"");
-                return $"https://files.freezer.life/0:/PC/{version}/Freezer%20{version}.exe";
-            }
             // qBittorrent
             else if (URLToParse.Equals("https://www.qbittorrent.org/download.php"))
             {
@@ -286,19 +280,19 @@ namespace DebloatUtils
                 return $"https://osdn.net/frs/redir.php?m=nchc&f=bulk-crap-uninstaller%2F{release}%2FBCUninstaller_{version}_setup.exe";
             }
             // Rufus
-            else if (URLToParse.Equals("https://rufus.ie/en_US"))
+            else if (URLToParse.Equals("https://rufus.ie/en"))
             {
                 string version = GetVal(client.DownloadString(URLToParse), new string[] { "Download</span>", ".exe\">Rufus " }, "</a>");
                 return $"https://github.com/pbatard/rufus/releases/download/v{version}/rufus-{version}p.exe";
             }
             // HWInfo
-            else if (URLToParse.Equals("https://www.hwinfo.com/download"))
+            else if (URLToParse.Equals("https://www.hwinfo.com/version-history"))
             {
                 string version = string.Join("", GetVal(client.DownloadString(URLToParse), new string[] { "<sub>Version " }, "</sub>").Split('.'));
                 return $"https://www.sac.sk/download/utildiag/hwi_{version}.exe";
             }
             // Advanced IP Scanner
-            else if (URLToParse.Equals("https://www.advanced-ip-scanner.com"))
+            else if (URLToParse.Equals("https://www.advanced-ip-scanner.com/download"))
             {
                 string version = GetVal(client.DownloadString(URLToParse), new string[] { "https://download.advanced-ip-scanner.com/download/files/Advanced_IP_Scanner_" }, ".exe");
                 return $"https://download.advanced-ip-scanner.com/download/files/Advanced_IP_Scanner_{version}.exe";
@@ -307,7 +301,7 @@ namespace DebloatUtils
             else if (URLToParse.Equals("https://www.videolan.org/vlc"))
             {
                 string version = GetVal(client.DownloadString(URLToParse), new string[] { "Version <span id='downloadVersion'>" }, "</span>").Trim();
-                return $"https://mirrors.syringanetworks.net/videolan/vlc/{version}/win64/vlc-{version}-win64.exe";
+                return $"https://vlc.freemirror.org/vlc/{version}/win64/vlc-{version}-win64.exe";
             }
             // 7-Zip
             else if (URLToParse.Equals("https://www.7-zip.org"))
